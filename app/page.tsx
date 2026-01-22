@@ -1,15 +1,9 @@
 "use client";
 
+import SearchBar from "@/components/SearchBar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SearchIcon } from "lucide-react";
-import { useState } from "react";
 
 // Mock data
 const flights = [
@@ -43,7 +37,6 @@ const flights = [
 ];
 
 export default function Home() {
-  const [destination, setDestination] = useState<string>("");
   return (
     <div className="min-h-screen font-sans">
       {/* Header Section */}
@@ -59,21 +52,7 @@ export default function Home() {
         </header>
       </div>
       {/* Iinput section */}
-      <div className="bg-white flex">
-        <div className="border-black">
-          <InputGroup className="">
-            <InputGroupInput
-              placeholder="Where to?"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-            ></InputGroupInput>
-            <InputGroupAddon align="inline-start">
-              <SearchIcon></SearchIcon>
-            </InputGroupAddon>
-          </InputGroup>
-        </div>
-      </div>
-
+      <SearchBar></SearchBar>
       {/* Tabs Section */}
       <div className="flex justify-center m-5">
         <Tabs defaultValue="flights">
