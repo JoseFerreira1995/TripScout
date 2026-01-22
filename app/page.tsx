@@ -97,6 +97,12 @@ export default function Home() {
               </CardContent>
             </Card>
           </TabsContent>
+          <TabsContent value="Hotels">
+            <h1>No hotels found</h1>
+          </TabsContent>
+          <TabsContent value="Attractions">
+            <h1>No attractions found</h1>
+          </TabsContent>
         </Tabs>
       </div>
     </div>
