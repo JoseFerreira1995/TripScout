@@ -12,7 +12,7 @@ export default function SearchBar() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLoadingState = () => {
-    
+    setLoading(!loading);
   };
 
   return (
@@ -42,7 +42,9 @@ export default function SearchBar() {
           <User2Icon></User2Icon>
         </InputGroupAddon>
       </InputGroup>
-      <Button className="w-full sm:w-15">Search </Button>
+      <Button className="w-full sm:w-15" onClick={handleLoadingState}>
+        {loading ? <Spinner>Loading</Spinner> : <span>Search</span>}
+      </Button>
     </div>
     // Todo: change color pallet in the main css file
   );
