@@ -3,10 +3,17 @@ import { useState } from "react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { SearchIcon, User2Icon } from "lucide-react";
 import { Button } from "./ui/button";
+import { DatePickerWithRange } from "./DatePickerWithRange";
+import { Spinner } from "./ui/spinner";
 
 export default function SearchBar() {
   const [destination, setDestination] = useState<string>("");
   const [numOfTravelers, setNumOfTravelers] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleLoadingState = () => {
+    
+  };
 
   return (
     <div className="bg-white grid-rows-3 space-y-2 m-10 sm:flex ">
@@ -23,9 +30,7 @@ export default function SearchBar() {
         </InputGroup>
       </div>
       <div>
-        <InputGroup>
-          <InputGroupInput></InputGroupInput>
-        </InputGroup>
+        <DatePickerWithRange></DatePickerWithRange>
       </div>
       <InputGroup>
         <InputGroupInput
@@ -37,7 +42,7 @@ export default function SearchBar() {
           <User2Icon></User2Icon>
         </InputGroupAddon>
       </InputGroup>
-      <Button className="w-full sm:w-15">Search</Button>
+      <Button className="w-full sm:w-15">Search </Button>
     </div>
     // Todo: change color pallet in the main css file
   );
