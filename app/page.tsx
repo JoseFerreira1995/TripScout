@@ -74,6 +74,7 @@ export default function Home() {
                 key={items}
                 airline={items.airline}
                 stops={items.stops}
+                duration={items.duration}
                 logo={items.logo}
                 arrival={items.arrival}
                 departure={items.departure}

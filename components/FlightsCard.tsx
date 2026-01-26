@@ -45,10 +45,10 @@ export default function FlightsCard({
   return (
     <div>
       <Card className="">
-        <CardContent>
+        <CardContent className="flex items-center justify-between gap-5">
           <div className="flex flex-col w-auto">
             <div>{logo}</div>
-            <span>{airline}</span>
+            <span className="text-xs text-gray-500">{airline}</span>
           </div>
 
           <div className="text-center">
@@ -56,11 +56,17 @@ export default function FlightsCard({
             <div>{departure.airport}</div>
           </div>
 
-          <PlaneIcon></PlaneIcon>
-          <div>{stops < 1 ? "Non stop" : stops}</div>
-          <span>{duration}</span>
-          <div>
-            Arrival: {arrival.time} {arrival.airport}
+          <div className="flex flex-col flex-1">
+            <div>{duration}</div>
+            <div className="w-full relative flex items-center">
+            <PlaneIcon></PlaneIcon>
+            <div>{stops < 1 ? "Non stop" : `${stops} stop`}</div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div>{arrival.time}</div>
+            <div>{arrival.airport}</div>
           </div>
           <h2 className="text-end">{price} €</h2>
         </CardContent>
