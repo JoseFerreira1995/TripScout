@@ -16,7 +16,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="bg-white grid-rows-3 space-y-2 m-10 sm:flex ">
+    <div className="bg-white border p-5 rounded-2xl grid-rows-3 space-y-2 m-10 sm:flex gap-2 ">
       <div className="border-black">
         <InputGroup className="">
           <InputGroupInput

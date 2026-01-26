@@ -1,5 +1,6 @@
 "use client";
 
+import FlightsCard from "@/components/FlightsCard";
 import SearchBar from "@/components/SearchBar";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -68,13 +69,18 @@ export default function Home() {
                 {flights.length} flights found
               </p>
             </div>
-            <Card>
-              <CardContent>
-                <p>{flights[0].airline}</p>
-                <p>{flights[0].price}</p>
-                <p>{flights[0].stops}</p>
-              </CardContent>
-            </Card>
+            {flights.map((items) => (
+              <FlightsCard
+                key={items}
+                airline={items.airline}
+                stops={items.stops}
+                duration={items.duration}
+                logo={items.logo}
+                arrival={items.arrival}
+                departure={items.departure}
+                price={items.price}
+              ></FlightsCard>
+            ))}
           </TabsContent>
           <TabsContent value="Hotels">
             <h1>No hotels found</h1>
