@@ -7,3 +7,13 @@ export type FlightCardTypes = {
   price: number;
   stops: number;
 };
+
+export type AttractionsTypeProps = {
+  name: string;
+  image: string;
+  description: string;
+  rating: number;
+  duration: string;
+  price: string;
+  category: string;
+};
