@@ -1,5 +1,6 @@
 "use client";
 
+import AccommodationsCard from "@/components/AccommodationsCars";
 import AttractionCard from "@/components/AttractionCard";
 import FlightsCard from "@/components/FlightsCard";
 import SearchBar from "@/components/SearchBar";
@@ -34,6 +35,39 @@ const flights = [
     duration: "6h 30m",
     price: 549,
     stops: 0,
+  },
+];
+
+const accommodations = [
+  {
+    name: "Le Marais Boutique Hotel",
+    image:
+      "https://images.unsplash.com/photo-1431274172761-fca41d930114?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXJpcyUyMGVpZmZlbCUyMHRvd2VyfGVufDF8fHx8MTc2ODc4Mzk5NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    location: "Le Marais, Paris",
+    rating: 4.8,
+    reviews: 243,
+    price: 189,
+    type: "Hotel",
+  },
+  {
+    name: "Seine River Apartment",
+    image:
+      "https://images.unsplash.com/photo-1543716091-a840c05249ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXclMjB5b3JrJTIwY2l0eXxlbnwxfHx8fDE3Njg3MjcwMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    location: "Latin Quarter, Paris",
+    rating: 4.6,
+    reviews: 187,
+    price: 145,
+    type: "Apartment",
+  },
+  {
+    name: "Champs-Élysées Suite",
+    image:
+      "https://images.unsplash.com/photo-1599676603816-0f92b2d713d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsb25kb24lMjBicmlkZ2V8ZW58MXx8fHwxNzY4NzU0NjgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    location: "Champs-Élysées, Paris",
+    rating: 4.9,
+    reviews: 356,
+    price: 275,
+    type: "Luxury",
   },
 ];
 
@@ -104,11 +138,11 @@ export default function Home() {
       {/* Tabs Section */}
       <div className="flex justify-center m-5 ">
         <Tabs defaultValue="flights">
-          <div className="flex justify-center m-5 p-3">
+          <div className="flex justify-center">
             <TabsList>
               <TabsTrigger value="flights">✈️ Flights</TabsTrigger>
-              <TabsTrigger value="Hotels">🏢 Hotels</TabsTrigger>
-              <TabsTrigger value="Attractions">🏰 Attrations</TabsTrigger>
+              <TabsTrigger value="hotels">🏢 Hotels</TabsTrigger>
+              <TabsTrigger value="attractions">🏰 Attrations</TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="flights">
@@ -118,9 +152,9 @@ export default function Home() {
                 {flights.length} flights found
               </p>
             </div>
-            {flights.map((items) => (
+            {flights.map((items, index) => (
               <FlightsCard
-                key={items}
+                key={index}
                 airline={items.airline}
                 stops={items.stops}
                 duration={items.duration}
@@ -131,23 +165,34 @@ export default function Home() {
               ></FlightsCard>
             ))}
           </TabsContent>
-          <TabsContent value="Hotels">
-            <h1>No hotels found</h1>
-          </TabsContent>
-          <TabsContent
-            value="Attractions"
-            className="sm:grid grid-cols-3 gap-4"
-          >
-            {attractions.map((item) => (
-              <AttractionCard
-                key={item}
+          <TabsContent value="hotels" className="sm:grid grid-cols-3">
+            {accommodations.map((item, index) => (
+              <AccommodationsCard
+                key={index}
                 name={item.name}
                 image={item.image}
-                description={item.description}
-                rating={item.rating}
+                location={item.location}
                 price={item.price}
-                category={item.category}
-                duration={item.duration}
+                rating={item.rating}
+                reviews={item.reviews}
+                type={item.type}
+              ></AccommodationsCard>
+            ))}
+          </TabsContent>
+          <TabsContent
+            value="attractions"
+            className="sm:grid grid-cols-3 gap-4"
+          >
+            {attractions.map((element, index) => (
+              <AttractionCard
+                key={index}
+                name={element.name}
+                image={element.image}
+                description={element.description}
+                rating={element.rating}
+                price={element.price}
+                category={element.category}
+                duration={element.duration}
               ></AttractionCard>
             ))}
           </TabsContent>
