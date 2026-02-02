@@ -1,6 +1,11 @@
 import { PlaneIcon } from "lucide-react";
 import { FlightCardTypes } from "./types";
 import { Card, CardContent } from "./ui/card";
+import { useEffect } from "react";
+import { getFlights } from "@/services/enpoints/getFlights";
+import { GET } from "@/app/api/flights/routes";
+import { json } from "stream/consumers";
+import { useQueryFlights } from "@/hooks/useQueryFlight";
 
 // mock data
 const flights = [
@@ -42,6 +47,20 @@ export default function FlightsCard({
   price,
   stops,
 }: FlightCardTypes) {
+
+
+  // useEffect(() => {
+  //   const testFetch = async () => {
+  //     fetch("/api/test")
+  //       .then((res) => res.json())
+  //       .then((json) => {
+  //         console.log("AQUI", json);
+  //       });
+  //   };
+
+  //   testFetch();
+  // }, []);
+
   return (
     <div>
       <Card className="">
@@ -59,8 +78,8 @@ export default function FlightsCard({
           <div className="flex flex-col flex-1">
             <div>{duration}</div>
             <div className="w-full relative flex items-center">
-            <PlaneIcon></PlaneIcon>
-            <div>{stops < 1 ? "Non stop" : `${stops} stop`}</div>
+              <PlaneIcon></PlaneIcon>
+              <div>{stops < 1 ? "Non stop" : `${stops} stop`}</div>
             </div>
           </div>
 
