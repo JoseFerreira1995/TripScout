@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getFlights } from "@/services/enpoints/getFlights";
 import { GET } from "@/app/api/flights/routes";
 import { json } from "stream/consumers";
+import { useQueryFlights } from "@/hooks/useQueryFlight";
 
 // mock data
 const flights = [
@@ -47,7 +48,7 @@ export default function FlightsCard({
   stops,
 }: FlightCardTypes) {
 
-  
+
   // useEffect(() => {
   //   const testFetch = async () => {
   //     fetch("/api/test")
