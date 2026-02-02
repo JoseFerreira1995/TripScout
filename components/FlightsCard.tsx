@@ -46,17 +46,19 @@ export default function FlightsCard({
   price,
   stops,
 }: FlightCardTypes) {
-  useEffect(() => {
-    const testFetch = async () => {
-      fetch("/api/test")
-        .then((res) => res.json())
-        .then((json) => {
-          console.log("AQUI", json);
-        });
-    };
 
-    testFetch();
-  }, []);
+  
+  // useEffect(() => {
+  //   const testFetch = async () => {
+  //     fetch("/api/test")
+  //       .then((res) => res.json())
+  //       .then((json) => {
+  //         console.log("AQUI", json);
+  //       });
+  //   };
+
+  //   testFetch();
+  // }, []);
 
   return (
     <div>
